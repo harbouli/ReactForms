@@ -10,7 +10,7 @@
 .textFieldCss input:focus + label,  
 .textFieldCss input:valid + label  {
     top: 10px;
-    font-size: 15px;
+    font-size: 13px;
     
 }
 .textFieldCss input:focus,
@@ -23,7 +23,7 @@
 .textFieldCss input{
     width: 100%;
     padding: 20px 10px 0px 10px;
-    height: 100%;
+    height: 80%;
     font-size: 25px;
     border: none;
     border-radius: 0px;
@@ -42,7 +42,7 @@
     width: calc( 100% + 20px);
     height: calc(100% + 20px);
     pointer-events: none;
-    top: 20px;
+    top: 15px;
     font-weight: bold;
     transition:  all 0.2s  ease-in-out;
     -webkit-transition:  all 0.2s  ease-in-out;

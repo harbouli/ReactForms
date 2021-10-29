@@ -2,6 +2,7 @@ import React from 'react'
 import '../css/Register.css'
 import { Formik, Form } from 'formik'
 import { TextField } from '../components/TextField'
+import Tilt from 'react-tilt'
 
 
 const Register = () => {
@@ -32,7 +33,12 @@ const Register = () => {
             <TextField label="Password" name="password" type="password" />
             <TextField label="Confirm Password" name="confirmPassword" type="password" />
             <div className="span-2"><TextField label="Email" name="email" type="text"  /></div>
-            <button className="btn span-2" type="submit">Submit</button>
+            <div className="tt span-2">
+              <Tilt className="Tilt  " options={{ max : 25 }} style={{ height: 250, width: 250 }} >
+                <button className="btn " type="submit">SUBMIT</button>
+              </Tilt>
+            </div>
+            
           </Form>
         </div>
       )}
