@@ -36,7 +36,7 @@
 }
 .textFieldCss label {
     position: absolute;
-    left: 10px;
+    left: 15px;
     color: #d0b09a;
     font-size: 20px;
     width: calc( 100% + 20px);

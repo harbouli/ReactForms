@@ -2,6 +2,8 @@ import React from 'react'
 import '../css/Register.css'
 import { Formik, Form } from 'formik'
 import { TextField } from '../components/TextField'
+
+
 const Register = () => {
     return (
         <div className="singup">
@@ -29,8 +31,8 @@ const Register = () => {
             <TextField label="Last Name" name="lastName" type="text" />
             <TextField label="Password" name="password" type="password" />
             <TextField label="Confirm Password" name="confirmPassword" type="password" />
-            <TextField label="Email" name="email" type="email" />
-            <button className="btn" type="reset">Reset</button>
+            <div className="span-2"><TextField label="Email" name="email" type="text"  /></div>
+            <button className="btn span-2" type="submit">Submit</button>
           </Form>
         </div>
       )}

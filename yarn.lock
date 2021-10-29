@@ -2554,6 +2554,11 @@
   "resolved" "https://registry.npmjs.org/atob/-/atob-2.1.2.tgz"
   "version" "2.1.2"
 
+"atropos@^1.0.1":
+  "integrity" "sha512-MJwmKQ6OOM5Sbf8aEt2LasIXxKwuknQtaAplrlVcUlmGH63V+dAdQVGOPbgYJlhX74LgSifa0kbLvc6jyPLegg=="
+  "resolved" "https://registry.npmjs.org/atropos/-/atropos-1.0.1.tgz"
+  "version" "1.0.1"
+
 "autoprefixer@^9.6.1":
   "integrity" "sha512-XrvP4VVHdRBCdX1S3WXVD8+RyG9qeb1D5Sn1DeLiG2xfSpzellk5k54xbUERJ3M5DggQxes39UGOTP8CFrEGbg=="
   "resolved" "https://registry.npmjs.org/autoprefixer/-/autoprefixer-9.8.6.tgz"
