@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import './css/App.css';
-import Login from './components/Login'
-import Register from './components/Register'
+import Login from './pages/Login'
+import Register from './pages/Register'
 import {
   BrowserRouter as Router,
   Switch,

@@ -1,0 +1,52 @@
+.textFieldCss{
+    width: 100%;
+    height: 50px;
+    position: relative;
+
+}
+.textFieldCss:last-child{
+    grid-column: span 1 / span 1;
+}  
+.textFieldCss input:focus + label,  
+.textFieldCss input:valid + label  {
+    top: 10px;
+    font-size: 15px;
+    
+}
+.textFieldCss input:focus,
+.textFieldCss input:valid{
+    background-color: white;
+    border: solid #3071E8 3px;
+    box-shadow: none;
+    outline: none;
+}
+.textFieldCss input{
+    width: 100%;
+    padding: 20px 10px 0px 10px;
+    height: 100%;
+    font-size: 25px;
+    border: none;
+    border-radius: 0px;
+    background-color: #011931;
+    border: solid #d0b09a 1px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+}
+.textFieldCss label {
+    position: absolute;
+    left: 10px;
+    color: #d0b09a;
+    font-size: 20px;
+    width: calc( 100% + 20px);
+    height: calc(100% + 20px);
+    pointer-events: none;
+    top: 20px;
+    font-weight: bold;
+    transition:  all 0.2s  ease-in-out;
+    -webkit-transition:  all 0.2s  ease-in-out;
+    -moz-transition:  all 0.2s  ease-in-out;
+    -ms-transition:  all 0.2s  ease-in-out;
+    -o-transition:  all 0.2s  ease-in-out;
+}
