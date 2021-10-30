@@ -2,11 +2,12 @@ import React from 'react'
 import '../css/Register.css'
 import { Formik, Form } from 'formik'
 import { TextField } from '../components/TextField'
+import * as yup from 'yup'
 const Login = () => {
-
+    
 
     return (
-
+        
         <div>
             <div className="singup">
             <h1>Log In</h1>
