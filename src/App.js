@@ -8,12 +8,18 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import {Home} from './pages/Home'
 
 function App() {
   return (
     <Fragment>
-        <Register />
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/Login" component={Login} />
+          <Route path="/Singup" component={Register} />
+        </Switch>
+      </Router>
     </Fragment>
   );
 }

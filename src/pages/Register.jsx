@@ -2,8 +2,7 @@ import React from 'react'
 import '../css/Register.css'
 import { Formik, Form } from 'formik'
 import { TextField } from '../components/TextField'
-import Tilt from 'react-tilt'
-
+import { Link } from 'react-router-dom'
 
 const Register = () => {
     return (
@@ -34,9 +33,8 @@ const Register = () => {
             <TextField label="Confirm Password" name="confirmPassword" type="password" />
             <div className="span-2"><TextField label="Email" name="email" type="text"  /></div>
             <div className="tt span-2">
-              <Tilt className="Tilt  " options={{ max : 25 }} style={{ height: 250, width: 250 }} >
                 <button className="btn " type="submit">SUBMIT</button>
-              </Tilt>
+                
             </div>
             
           </Form>
