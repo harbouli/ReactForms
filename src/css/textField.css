@@ -13,14 +13,14 @@
     font-size: 13px;
     
 }
-.textFieldCss input:focus,
-.textFieldCss input:valid{
+.textFieldCss .h:focus,
+.textFieldCss .h:valid{
     background-color: white;
     border: solid #3071E8 3px;
     box-shadow: none;
     outline: none;
 }
-.textFieldCss input{
+.textFieldCss .h{
     width: 100%;
     padding: 20px 10px 0px 10px;
     height: 80%;
@@ -49,4 +49,14 @@
     -moz-transition:  all 0.2s  ease-in-out;
     -ms-transition:  all 0.2s  ease-in-out;
     -o-transition:  all 0.2s  ease-in-out;
+}
+.Error-tooltip{
+    position: absolute;
+    top: -15px;
+    font-size: 12px;
+    color: #ff9292;
+    font-weight: bold;
+}
+.is-invalid{
+    border: 2px #ff9292 solid
 }

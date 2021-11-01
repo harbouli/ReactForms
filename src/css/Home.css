@@ -1,0 +1,33 @@
+.holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    margin-top: 35vh;
+}
+.holder a{
+    text-decoration: none;
+    color: #d0b09a;
+    padding: 50px 70px;
+    margin-left: 30px;
+    background-color: white;
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+}
+.holder a:hover::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .2;
+    background-color: white;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    filter: blur(30px);
+    -webkit-filter: blur(30px);
+}
+.holder .Tilt{
+    margin: 0;
+}
