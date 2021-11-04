@@ -18,6 +18,7 @@ form{
     grid-column: span 2 / span 2;
 }
 .btn{
+    margin: 0 0 0 34vw;
     width: 175px;
     height: 75px;
     padding: 25px 20px;
@@ -59,7 +60,4 @@ form{
     -ms-border-radius: 99999px;
     -o-border-radius: 99999px;
     -webkit-filter: blur(30px);
-}
-.tt .Tilt{
-    margin: auto;
 }

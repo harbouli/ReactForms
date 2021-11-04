@@ -2,9 +2,15 @@ import React from 'react'
 import '../css/Register.css'
 import { Formik, Form } from 'formik'
 import { TextField } from '../components/TextField'
-import Tilt from 'react-tilt'
+import * as Yup from 'yup'
+
+
 const Login = () => {
-    
+    const LoginValidation = Yup.object({
+      email: Yup.string()
+      .required('Required')
+      .email('Email Format is Incorrect')
+    })
 
     return (
         
@@ -19,7 +25,7 @@ const Login = () => {
         email: '',
         password: '',
       }}
- 
+      validationSchema = {LoginValidation}
       onSubmit={values => {
         console.log(values)
       }}
@@ -27,14 +33,14 @@ const Login = () => {
       {formik => (
         <div>
           <Form>
+          <div className="span-2"><TextField label="Email" name="email" type="text"  /></div>
           <div className="span-2">
             <TextField label="Password" name="password" type="password" />
             </div>
-            <div className="span-2"><TextField label="Email" name="email" type="text"  /></div>
             <div className=" span-2">
-            <Tilt className="Tilt  " options={{ max : 25 }} style={{ height: 250, width: 250 }} >
+            <div className="Tilt  ">
                 <button className="btn " type="submit">LOG IN</button>
-                </Tilt>
+                </div>
             </div>
             
           </Form>
