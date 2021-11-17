@@ -1,12 +1,23 @@
-import React from 'react'
+import React,{useContext, useState} from 'react'
 import '../css/Register.css'
 import { Formik, Form } from 'formik'
 import { TextField } from '../components/TextField'
 import * as Yup from 'yup'
+import {MyContext} from '../context/MyContext'
 import axios from 'axios'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+
+
+
+
+
+
 
 const Register = () => {
+  const history = useHistory()
+  const [errorHandler, setErrorHandler] = useState(null)
+
+
     const validation = Yup.object({
       firstname : Yup.string()
       .required('Required')
@@ -43,19 +54,25 @@ const Register = () => {
         confirmPassword: ''
       }}
       validationSchema ={validation}
-      onSubmit={values => {
+      onSubmit={ values => {
+        axios.post('http://localhost/php-login-registration-api/register.php',values)
+        .then(req =>{
+          if(req.data.status > 300) 
+          return(
+            setErrorHandler(req.data.message)
+            )
+            
+          else{
+            history.push("/");
+            return req
+        }
+        })
         
-        axios.post('http://server.test/api/createUser.php',values)
-        .then((res) =>{
-          console.log(res);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
       }}
     >
       {formik => (
         <div>
+          {errorHandler && <div className="alert"> {errorHandler}</div>}
           <Form>
             <TextField label="First Name" name="firstname" type="text" />
             <TextField label="Last Name" name="lastname" type="text" />

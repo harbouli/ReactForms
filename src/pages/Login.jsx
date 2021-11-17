@@ -6,6 +6,8 @@ import * as Yup from 'yup'
 
 
 const Login = () => {
+      const history = useHistory()
+      const [errorHandler, setErrorHandler] = useState(null)
     const LoginValidation = Yup.object({
       email: Yup.string()
       .required('Required')
@@ -26,8 +28,20 @@ const Login = () => {
         password: '',
       }}
       validationSchema = {LoginValidation}
-      onSubmit={values => {
-        console.log(values)
+      onSubmit={ values => {
+        axios.post('http://localhost/php-login-registration-api/login.php',values)
+        .then(req =>{
+          if(req.data.status > 300) 
+          return(
+            setErrorHandler(req.data.message)
+            )
+            
+          else{
+            history.push("/profil");
+            return req
+        }
+        })
+        
       }}
     >
       {formik => (
