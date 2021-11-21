@@ -4,7 +4,7 @@ export const MyContext = createContext();
 
 
 const Axios = axios.create({
-    baseURL: 'http://localhost/php-login-registration-api/',
+    baseURL: 'http://localhost/Api-php/',
 });
 
 class MyContextProvider extends Component{
@@ -19,48 +19,19 @@ class MyContextProvider extends Component{
         theUser:null,
     }
     
-    toggleNav = () => {
-        const showLogin = !this.state.showLogin;
-        this.setState({
-            ...this.state,
-            showLogin
-        })
-    }
 
     logoutUser = () => {
-        localStorage.removeItem('loginToken');
+        localStorage.removeItem('jwt');
         this.setState({
             ...this.state,
             isAuth:false
         })
     }
 
-    registerUser = async (user) => {
-
-        const register = await Axios.post('register.php',{
-            firstname:user.firstname,
-            lastname:user.lastname,
-            email:user.email,
-            password:user.password 
-        });
-
-        return register.data;
-    }
-
-
-    loginUser = async (user) => {
-
-        const login = await Axios.post('login.php',{
-            email:user.email,
-            password:user.password
-        });
-        return login.data;
-    }
-
     isLoggedIn = async () => {
-        const loginToken = localStorage.getItem('loginToken');
-        if(loginToken){
-            Axios.defaults.headers.common['Authorization'] = 'bearer '+loginToken;
+        const Token = localStorage.getItem('jwt');
+        if(Token){
+            Axios.defaults.headers.common['Authorization'] = 'bearer '+Token;
 
             const {data} = await Axios.get('user-info.php');
 
@@ -77,11 +48,7 @@ class MyContextProvider extends Component{
 
     render(){
         const contextValue = {
-            rootState:this.state,
-            toggleNav:this.toggleNav,
             isLoggedIn:this.isLoggedIn,
-            registerUser:this.registerUser,
-            loginUser:this.loginUser,
             logoutUser:this.logoutUser
         }
         return(
