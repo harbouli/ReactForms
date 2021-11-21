@@ -1,8 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import '../css/Register.css'
 import { Formik, Form } from 'formik'
 import { TextField } from '../components/TextField'
 import * as Yup from 'yup'
+import {useHistory} from 'react-router-dom'
+import axios from 'axios'
+
 
 
 const Login = () => {
@@ -29,16 +32,18 @@ const Login = () => {
       }}
       validationSchema = {LoginValidation}
       onSubmit={ values => {
-        axios.post('http://localhost/php-login-registration-api/login.php',values)
-        .then(req =>{
-          if(req.data.status > 300) 
+        axios.post('http://localhost/Api-php/api/login.php',values)
+        .then(res =>{
+          if(res.data.status > 300) 
           return(
-            setErrorHandler(req.data.message)
+            setErrorHandler(res.data.message)
             )
             
           else{
-            history.push("/profil");
-            return req
+            if(res.data.jwt){
+              localStorage.setItem('jwt',res.data.jwt)
+              history.push("/profil");
+            }
         }
         })
         
