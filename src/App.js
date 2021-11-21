@@ -8,9 +8,11 @@ import {
   Route
 } from "react-router-dom";
 import {Home} from './pages/Home'
+import MyContextProvider from './context/MyContext';
 
 function App() {
   return (
+    <MyContextProvider>
     <Fragment>
       <Router>
         <Switch>
@@ -20,6 +22,7 @@ function App() {
         </Switch>
       </Router>
     </Fragment>
+    </MyContextProvider>
   );
 }
 
