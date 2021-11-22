@@ -55,7 +55,7 @@ const Register = () => {
       }}
       validationSchema ={validation}
       onSubmit={ values => {
-        axios.post('http://localhost/Api-php/api/singup.php',values)
+        axios.post('http://server.test/api/createUser.php',values)
         .then(req =>{
           if(req.data.status > 300) 
           return(
