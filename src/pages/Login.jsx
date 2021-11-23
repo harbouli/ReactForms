@@ -6,6 +6,9 @@ import * as Yup from 'yup'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 
+import { useContext, useState } from 'react'
+import { MyContext } from '../context/MyContext'
+const {isLoggedIn} =useContext(MyContext)
 
 
 const Login = () => {
@@ -31,8 +34,8 @@ const Login = () => {
         password: '',
       }}
       validationSchema = {LoginValidation}
-      onSubmit={ values => {
-        axios.post('http://localhost/Api-php/api/login.php',values)
+      onSubmit={async(values) => {
+        await axios.post('http://localhost/Api-php/api/login.php',values)
         .then(res =>{
           if(res.data.status > 300) 
           return(
@@ -41,7 +44,9 @@ const Login = () => {
             
           else{
             if(res.data.jwt){
+
               localStorage.setItem('jwt',res.data.jwt)
+              await isLoggedIn()
               history.push("/home");
             }
         }

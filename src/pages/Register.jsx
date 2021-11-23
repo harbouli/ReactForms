@@ -3,11 +3,8 @@ import '../css/Register.css'
 import { Formik, Form } from 'formik'
 import { TextField } from '../components/TextField'
 import * as Yup from 'yup'
-import {MyContext} from '../context/MyContext'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
-
-
 
 
 
@@ -54,17 +51,16 @@ const Register = () => {
         confirmPassword: ''
       }}
       validationSchema ={validation}
-      onSubmit={ values => {
-        axios.post('http://server.test/api/createUser.php',values)
-        .then(req =>{
-          if(req.data.status > 300) 
+      onSubmit={ async(values) => {
+        await axios.post('http://server.test/api/createUser.php',values)
+        .then(res =>{
+          if(res.data.status > 300) 
           return(
-            setErrorHandler(req.data.message)
+            setErrorHandler(res.data.message)
             )
             
           else{
             history.push("/");
-            return req
         }
         })
         

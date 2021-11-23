@@ -48,6 +48,7 @@ class MyContextProvider extends Component{
 
     render(){
         const contextValue = {
+            rootState:this.state,
             isLoggedIn:this.isLoggedIn,
             logoutUser:this.logoutUser
         }
