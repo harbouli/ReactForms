@@ -42,7 +42,7 @@ const Login = () => {
           else{
             if(res.data.jwt){
               localStorage.setItem('jwt',res.data.jwt)
-              history.push("/profil");
+              history.push("/home");
             }
         }
         })
