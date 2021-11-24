@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react'
+import React,{ useState} from 'react'
 import '../css/Register.css'
 import { Formik, Form } from 'formik'
 import { TextField } from '../components/TextField'
@@ -52,7 +52,7 @@ const Register = () => {
       }}
       validationSchema ={validation}
       onSubmit={ async(values) => {
-        await axios.post('http://server.test/api/createUser.php',values)
+        await axios.post('http://localhost/Api-php/api/createUser.php',values)
         .then(res =>{
           if(res.data.status > 300) 
           return(

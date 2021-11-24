@@ -45,12 +45,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harbouli/ReactForms.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/harbouli/ReactForms/issues"
-  },
-  "homepage": "https://github.com/harbouli/ReactForms#readme"
+  }
 }

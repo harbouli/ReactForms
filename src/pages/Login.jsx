@@ -5,13 +5,13 @@ import { TextField } from '../components/TextField'
 import * as Yup from 'yup'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
-
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { MyContext } from '../context/MyContext'
-const {isLoggedIn} =useContext(MyContext)
+
 
 
 const Login = () => {
+  const {isLoggedIn} =useContext(MyContext)
       const history = useHistory()
       const [errorHandler, setErrorHandler] = useState(null)
     const LoginValidation = Yup.object({
@@ -34,8 +34,8 @@ const Login = () => {
         password: '',
       }}
       validationSchema = {LoginValidation}
-      onSubmit={async(values) => {
-        await axios.post('http://localhost/Api-php/api/login.php',values)
+      onSubmit={(values) => {
+        axios.post('http://localhost/Api-php/api/login.php',values)
         .then(res =>{
           if(res.data.status > 300) 
           return(
@@ -46,7 +46,7 @@ const Login = () => {
             if(res.data.jwt){
 
               localStorage.setItem('jwt',res.data.jwt)
-              await isLoggedIn()
+               isLoggedIn()
               history.push("/home");
             }
         }
@@ -56,6 +56,7 @@ const Login = () => {
     >
       {formik => (
         <div>
+          {errorHandler && <div className="alert">{errorHandler}</div>}
           <Form>
           <div className="span-2"><TextField label="Email" name="email" type="text"  /></div>
           <div className="span-2">
