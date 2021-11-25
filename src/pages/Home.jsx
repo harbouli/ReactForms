@@ -7,14 +7,20 @@ import { MyContext } from '../context/MyContext'
 
 export const Home = () => {
     const {rootState,logoutUser} =useContext(MyContext)
-    const {isAuth,theUser,showLogin} = rootState;
+    const {isAuth,theUser} = rootState;
     if(isAuth){
         return(
+            <>
+        <h1>FirstName: {theUser.firstname && <span>{theUser.firstname}</span>}</h1>
+        <h1>LastName: {theUser.lastname && <span>{theUser.lastname}</span>}</h1>
+        <h1>Email: {theUser.email &&<span>{theUser.email}</span> }</h1>
         <div className="holder">
              <div className="Tilt  " >
                 <Link onClick={logoutUser} to="/"> Log Out</Link>
             </div>
         </div>
+        
+        </>
         )
     }else{
     return (

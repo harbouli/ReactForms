@@ -14,14 +14,13 @@ class MyContextProvider extends Component{
     }
 
     state = {
-        showLogin:true,
-        isAuth:true,
+        isAuth:false,
         theUser:null,
     }
     
 
     logoutUser = () => {
-        localStorage.removeItem('jwt');
+        localStorage.removeItem('token');
         this.setState({
             ...this.state,
             isAuth:false
@@ -29,11 +28,11 @@ class MyContextProvider extends Component{
     }
 
     isLoggedIn = async () => {
-        const Token = localStorage.getItem('jwt');
+        const Token = localStorage.getItem('token');
         if(Token){
-            Axios.defaults.headers.common['Authorization'] = 'bearer '+Token;
-
-            const {data} = await Axios.get('user-info.php');
+         Axios.defaults.headers.common['Authorization'] = 'bearer '+Token;
+            const {data} = await Axios.get('api/decoder.php');
+            console.log(data)
 
             if(data.success && data.user){
                 this.setState({
@@ -41,6 +40,7 @@ class MyContextProvider extends Component{
                     isAuth:true,
                     theUser:data.user
                 });
+                console.log(this.state)
             }
 
         }

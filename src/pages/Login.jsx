@@ -37,17 +37,19 @@ const Login = () => {
       onSubmit={(values) => {
         axios.post('http://localhost/Api-php/api/login.php',values)
         .then(res =>{
+          console.log(res)
           if(res.data.status > 300) 
           return(
+            
             setErrorHandler(res.data.message)
             )
             
           else{
-            if(res.data.jwt){
+            if(res.data.token){
 
-              localStorage.setItem('jwt',res.data.jwt)
+              localStorage.setItem('token',res.data.token)
                isLoggedIn()
-              history.push("/home");
+              history.push("/");
             }
         }
         })
