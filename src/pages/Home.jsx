@@ -11,7 +11,7 @@ export const Home = () => {
     if(isAuth){
         return(
             <>
-        <h1>FirstName: {theUser.firstname && <span>{theUser.firstname}</span>}</h1>
+            <h1>FirstName: {theUser.firstname && <span>{theUser.firstname}</span>}</h1>
         <h1>LastName: {theUser.lastname && <span>{theUser.lastname}</span>}</h1>
         <h1>Email: {theUser.email &&<span>{theUser.email}</span> }</h1>
         <div className="holder">
