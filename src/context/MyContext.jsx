@@ -15,7 +15,7 @@ class MyContextProvider extends Component{
 
     state = {
         showLogin:true,
-        isAuth:true,
+        isAuth:false,
         theUser:null,
     }
     
