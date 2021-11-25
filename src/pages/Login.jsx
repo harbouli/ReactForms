@@ -37,8 +37,7 @@ const Login = () => {
       onSubmit={(values) => {
         axios.post('http://localhost/Api-php/api/login.php',values)
         .then(res =>{
-          console.log(res)
-          if(res.data.status > 300) 
+          if(res.data.status > 399) 
           return(
             
             setErrorHandler(res.data.message)

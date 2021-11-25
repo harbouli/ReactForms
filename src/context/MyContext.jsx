@@ -31,8 +31,7 @@ class MyContextProvider extends Component{
         const Token = localStorage.getItem('token');
         if(Token){
          Axios.defaults.headers.common['Authorization'] = 'bearer '+Token;
-            const {data} = await Axios.get('api/decoder.php');
-            console.log(data)
+            const {data} = await Axios.get('api/ecoder.php');
 
             if(data.success && data.user){
                 this.setState({
@@ -40,7 +39,6 @@ class MyContextProvider extends Component{
                     isAuth:true,
                     theUser:data.user
                 });
-                console.log(this.state)
             }
 
         }

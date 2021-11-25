@@ -6,7 +6,7 @@ import MyContextProvider from './context/MyContext';
 ReactDOM.render(
   <React.StrictMode>
     <MyContextProvider>
-    <App />
+      <App />
     </MyContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
