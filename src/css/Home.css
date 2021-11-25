@@ -31,3 +31,13 @@
 .holder .Tilt{
     margin: 0;
 }
+.data-info{
+    text-align: center;
+}
+.data-info h1{
+    margin: 1rem 0 2rem 0;
+    color: #d0b09a;
+}
+.data-info h1 span{
+    color: #fff;
+}
